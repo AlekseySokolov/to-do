@@ -24,6 +24,11 @@ class TaskInput extends React.Component {
       taskStore : (this.state.textInput === '') ? this.state.taskStore : [...this.state.taskStore, this.state.textInput]
     })
   }
+  onClick = (key) => {
+    this.setState({
+      taskStore : this.state.taskStore.filter(item => item !== key)
+    })
+  }
 
   render() {
     return (
@@ -35,7 +40,7 @@ class TaskInput extends React.Component {
          <button onClick={this.onSubmit} className="btn btn-outline-secondary" type="button" style={{marginBottom : '30px'}}>add task</button>
         </div>
        </div>
-        {this.state.taskStore.map((item,index) => <TaskOutput key={index} item={item} />)}
+        <div>{this.state.taskStore.map((item,index) => <TaskOutput key={index} item={item} onClick={this.onClick.bind(this, item)} />)}</div>
       </div>
     )
   }

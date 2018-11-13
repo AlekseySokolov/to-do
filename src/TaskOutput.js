@@ -28,7 +28,7 @@ class TaskOutput extends React.Component {
     });
     return (
 
-   <div className={taskClassSwitcher} role="alert" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>{this.props.item}</div>
+   <div className={taskClassSwitcher} role="alert" keys={this.props.keys} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} onClick={this.props.onClick}>{this.props.item}</div>
 
    )
 
